@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería - Gregorio de la Fuente</title>
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../css/estilos-cards.css">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 2rem;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #fafafa;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eaeaea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🖼️ Gregorio de la Fuente</h1>
+        <div class="subtitle">
+            Pintor y Muralista Chileno (1910-1999) · Archivo Digital 2026
+        </div>
+        
+        <!-- ========================================= -->
+        <!-- CONTENEDOR PRINCIPAL - CARGA EL JSON      -->
+        <!-- ========================================= -->
+        <!-- Cambia data-categoria para filtrar:       -->
+        - Murales
+        - Surrealistas
+        - Paisajes
+        - Retratos
+        - Bocetos
+        - Artes Aplicadas
+        - "todas" (sin filtro)
+        <!-- ========================================= -->
+        
+        <div 
+            id="gdlf-gallery" 
+            data-categoria="todas"
+        ></div>
+        
+        <!-- Script principal - Carga el JSON externo -->
+        <script src="cargador-cards.js"></script>
+        
+        <!-- Configuración personalizada (opcional) -->
+        <script>
+            // Si necesitas cambiar la ruta del JSON:
+            document.addEventListener('DOMContentLoaded', function() {
+                if (window.GDLFGallery) {
+                    // Sobrescribir configuración
+                    window.GDLFGallery.init({
+                        jsonUrl: '/api/obras.json',  // Ruta a tu JSON
+                        debug: true                   // Activar logs
+                    });
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>
